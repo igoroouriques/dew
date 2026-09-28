@@ -84,3 +84,329 @@ ul {
     padding: 0;
     margin: 0;
 }
+
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7f5;
+    color: #252525;
+    text-align: center;
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+/* =========================
+   TÍTULOS
+========================= */
+
+h1 {
+    font-size: 32px;
+    color: #198754;
+    text-transform: uppercase;
+    margin: 25px 0;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 26px;
+    color: #222;
+    margin: 25px 0;
+}
+
+h3 {
+    font-size: 19px;
+    color: #333;
+    margin: 15px 0 8px;
+}
+
+h4 {
+    font-size: 22px;
+    color: #198754;
+    margin: 10px 0;
+}
+
+h5 {
+    font-size: 14px;
+    color: #777;
+    margin: 8px 0 15px;
+}
+
+/* =========================
+   PARÁGRAFOS
+========================= */
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+small {
+    display: block;
+    color: #777;
+    margin: 15px 0;
+}
+
+mark {
+    background: #d4edda;
+    color: #146c43;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+/* =========================
+   BANNER
+========================= */
+
+.banner {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 300px;
+    margin: 0 auto 30px;
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 135, 84, 0.9),
+            rgba(13, 80, 48, 0.85)
+        );
+
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner h1 {
+    color: white;
+    font-size: 36px;
+    margin: 0;
+}
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    list-style: none;
+    padding: 15px;
+    margin: 25px auto;
+
+    background: white;
+    max-width: 500px;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.nav li {
+    list-style: none;
+}
+
+.nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #198754;
+
+    padding: 12px 25px;
+    border-radius: 8px;
+
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: #146c43;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   LISTAS DE PRODUTOS
+========================= */
+
+body.page-category-tvs ul,
+body.page-category-acessories ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+body.page-category-tvs ul li,
+body.page-category-acessories ul li {
+    list-style: none;
+    background: white;
+
+    width: 280px;
+    padding: 20px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.page-category-tvs ul li:hover,
+body.page-category-acessories ul li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+}
+
+/* =========================
+   IMAGENS DOS PRODUTOS
+========================= */
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: 180px;
+    object-fit: contain;
+
+    margin: 0 auto 15px;
+    border-radius: 8px;
+}
+
+/* =========================
+   BOTÕES DE DETALHES
+========================= */
+
+body.page-category-tvs li a,
+body.page-category-acessories li a {
+    display: inline-block;
+
+    background: #198754;
+    color: white;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+
+    padding: 11px 25px;
+    margin-top: 10px;
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+body.page-category-tvs li a:hover,
+body.page-category-acessories li a:hover {
+    background: #146c43;
+    transform: scale(1.05);
+}
+
+/* =========================
+   LISTA PRIMÁRIA
+========================= */
+
+#primary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* =========================
+   ELEMENTOS OCULTOS
+========================= */
+
+.hide {
+    display: none;
+}
+
+/* =========================
+   LINKS GERAIS
+========================= */
+
+a {
+    transition: 0.3s ease;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .banner {
+        min-height: 220px;
+    }
+
+    .banner h1 {
+        font-size: 28px;
+    }
+
+    body.page-category-tvs ul,
+    body.page-category-acessories ul {
+        gap: 20px;
+    }
+
+    body.page-category-tvs ul li,
+    body.page-category-acessories ul li {
+        width: min(100%, 320px);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+
+    .banner {
+        min-height: 180px;
+        padding: 15px;
+    }
+
+    .banner h1 {
+        font-size: 23px;
+    }
+
+    .nav {
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .nav a {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
