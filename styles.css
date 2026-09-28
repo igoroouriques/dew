@@ -40,8 +40,9 @@ img {
 /* pd 1 */
 .banner {
     height: 300px;
-    width: 300px;
-    background-image: url(https://tse3.mm.bing.net/th/id/OIP.aDxGLfZL9-ExkJHnr_kNBwHaCe?r=0&rs=1&pid=ImgDetMain&o=7&rm=3);
+    width: fit-content;
+    margin: 0 auto;
+    background-image: url(https://img.freepik.com/vector-premium/fondo-abstracto-verde_249611-263.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -66,7 +67,8 @@ img {
 body {
     padding: 20px;
     margin: 20px;
-    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 
@@ -75,3 +77,10 @@ a:hover {
     opacity: 0.5;
 }
 
+
+/* all 1 */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
