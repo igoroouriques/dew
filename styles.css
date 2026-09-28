@@ -36,3 +36,39 @@ img {
     margin: auto;
     max-width: 150px;
 }
+
+/* pd 1 */
+.banner {
+    height: 300px;
+    width: 300px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrT3ZH_c10k1XXn5EywS0IOX_XKlpxKyAwS62dX6XqgcGY3gRUmEqVqmU&s=10);
+    background-repeat: no-repeat;
+}
+
+
+/* pd 2 */
+.hide {
+    display: none;
+}
+
+
+/* pd 3 */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+
+/* all 1 */
+body {
+    padding: 20px;
+    margin: 20px;
+}
+
+
+/* all 2 */
+a:hover {
+    opacity: 0.5;
+}
+
