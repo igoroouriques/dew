@@ -69,8 +69,16 @@ body {
     margin: 20px;
     justify-content: center;
     text-align: center;
+    background:
+        radial-gradient(circle at top left, rgba(25, 135, 84, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(46, 125, 50, 0.12), transparent 32%),
+        linear-gradient(135deg, #f3faf5 0%, #edf6f0 38%, #e2efe8 100%);
+    background-color: #edf6f0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #252525;
 }
-
 
 /* all 2 */
 a:hover {
@@ -96,13 +104,25 @@ ul {
     box-sizing: border-box;
 }
 
+html {
+    background: #edf6f0;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7f5;
+    background:
+        radial-gradient(circle at top left, rgba(25, 135, 84, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(46, 125, 50, 0.12), transparent 32%),
+        linear-gradient(135deg, #f3faf5 0%, #edf6f0 38%, #e2efe8 100%);
+    background-color: #edf6f0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #252525;
     text-align: center;
     min-height: 100vh;
     padding: 30px 20px;
+    line-height: 1.5;
 }
 
 /* =========================
@@ -210,12 +230,17 @@ mark {
     list-style: none;
     padding: 15px;
     margin: 25px auto;
+    position: sticky;
+    top: 12px;
+    z-index: 3;
 
-    background: white;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(25, 135, 84, 0.12);
     max-width: 500px;
     border-radius: 12px;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 18px rgba(25, 135, 84, 0.12);
 }
 
 .nav li {
@@ -238,6 +263,37 @@ mark {
 .nav a:hover {
     background: #146c43;
     transform: translateY(-3px);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    background: transparent;
+}
+
+header .nav {
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(25, 135, 84, 0.12);
+}
+
+header .nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header .nav li {
+    display: inline-block;
+    margin-right: 10px;
 }
 
 /* =========================
@@ -343,7 +399,7 @@ body.page-category-acessories li a:hover {
 ========================= */
 
 a {
-    transition: 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* =========================
@@ -431,7 +487,7 @@ header {
     top: 0;
     z-index: 3;
     width: 100%;
-    background-color: darkkhaki;
+    background: transparent;
 }
 
 header .nav {
@@ -463,9 +519,7 @@ header .nav li {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
-    flex-direction: row;.products {
-        flex-direction: column;
-    }
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
     gap: 10px;
@@ -736,5 +790,202 @@ footer p {
     header,
     footer {
         display: none;
+    }
+}
+
+
+/* =========================
+   BUSCA, CONTA E FEEDBACK
+========================= */
+body.page-category-tvs {
+    background:
+        radial-gradient(ellipse at 8% 8%, rgba(90, 205, 155, .19), transparent 32%),
+        radial-gradient(ellipse at 92% 24%, rgba(93, 155, 226, .14), transparent 28%),
+        linear-gradient(145deg, #f3faf6 0%, #f7f9ff 48%, #eef7f3 100%);
+    background-attachment: fixed;
+}
+body.page-category-tvs main {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    background: rgba(255,255,255,.92);
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(28, 71, 52, .08);
+}
+.products-table th, .products-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e8eee9;
+}
+.products-table th {
+    color: #fff;
+    background: #176b49;
+}
+.products-table tr:last-child td { border-bottom: 0; }
+.products-table td img { width: 100px; height: 76px; object-fit: contain; }
+.products-table a {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 8px;
+    background: #198754;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+.shop-tools { margin: 65px auto 30px; }
+.section-heading { max-width: 720px; margin: 0 auto 28px; }
+.section-heading .eyebrow {
+    display: inline-block;
+    color: #17764e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.section-heading h2 { margin: 10px 0; font-size: clamp(26px, 4vw, 36px); }
+.section-heading p { color: #68756e; }
+.tool-card {
+    text-align: left;
+    background: rgba(255,255,255,.88);
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 20px;
+    padding: clamp(20px, 3vw, 30px);
+    box-shadow: 0 15px 45px rgba(30, 70, 52, .09);
+    backdrop-filter: blur(10px);
+}
+.tool-card h3 { text-align: left; margin: 0 0 18px; color: #183b2c; }
+.search-card { max-width: 850px; margin: 0 auto 24px; }
+.search-row { display: flex; gap: 10px; margin-top: 8px; }
+.account-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.account-form { display: grid; gap: 10px; margin-top: 16px; }
+.account-form label, .search-card label { color: #344b3e; font-size: 14px; font-weight: 700; }
+.account-form input, .account-form select, .account-form textarea, .search-row input {
+    width: 100%;
+    border: 1px solid #d7e3db;
+    background: #fbfdfb;
+    color: #20352a;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font: inherit;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+.account-form input:focus, .account-form select:focus, .account-form textarea:focus, .search-row input:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25,135,84,.12);
+}
+.account-form textarea { resize: vertical; }
+.button {
+    border: 0;
+    border-radius: 10px;
+    padding: 13px 18px;
+    background: linear-gradient(135deg, #198754, #11613e);
+    color: #fff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+}
+.button:hover { transform: translateY(-2px); box-shadow: 0 7px 16px rgba(17,97,62,.2); }
+.button-secondary { background: #eaf4ee; color: #176b49; }
+.form-tabs { display: flex; gap: 8px; padding: 5px; background: #edf5ef; border-radius: 12px; }
+.form-tab { flex: 1; padding: 11px; border: 0; border-radius: 9px; background: transparent; color: #527061; font: inherit; font-weight: 700; cursor: pointer; }
+.form-tab.active { background: #fff; color: #176b49; box-shadow: 0 2px 8px rgba(25,70,45,.1); }
+.form-status { min-height: 1.4em; margin: 3px 0 0; color: #17764e; font-size: 14px; }
+.privacy-note { margin: 16px 0 0; font-size: 12px; color: #77857c; }
+.rating-label { display: flex; justify-content: space-between; gap: 10px; }
+.account-form input[type="range"] { accent-color: #198754; padding: 0; }
+[hidden] { display: none !important; }
+@media (max-width: 760px) {
+    body { padding: 18px 12px; }
+    .account-grid { grid-template-columns: 1fr; }
+    .products-table { font-size: 13px; display: block; overflow-x: auto; white-space: nowrap; }
+    .products-table th, .products-table td { padding: 10px 8px; }
+    .search-row { flex-direction: column; }
+    .search-row .button { width: 100%; }
+}
+
+
+/* =========================
+   EXERCÍCIO 4 — TRANSITIONS E ANIMAÇÕES
+   ========================= */
+
+/* all-3: os links ficam semitransparentes no hover,
+   com atraso de 0,8s apenas na mudança de opacidade. */
+a {
+    transition: opacity 0.3s ease 0.8s, transform 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+/* all-4: aumenta as imagens em 50% ao passar o mouse.
+   O z-index ajuda a imagem a aparecer sobre os elementos próximos. */
+img {
+    transition: transform 0.35s ease;
+}
+
+img:hover {
+    transform: scale(1.5);
+    position: relative;
+    z-index: 5;
+}
+
+/* ct-tv 6: anima o título da categoria usando rotateX/rotateY
+   com valores em graus. */
+@keyframes animar-titulo-produtos {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(12deg) rotateY(18deg) rotateX(-6deg);
+    }
+    100% {
+        transform: rotateX(0deg) rotateY(0deg) rotateX(0deg);
+    }
+}
+
+body.page-category-tvs main > h2:first-of-type {
+    transform-style: preserve-3d;
+    animation: animar-titulo-produtos 2.5s ease-in-out 0.8s 1;
+}
+
+/* ct-tv 7: desloca o título principal (h1) usando translate
+   e porcentagens, entrando suavemente pela esquerda. */
+@keyframes deslocar-titulo-principal {
+    0% {
+        transform: translateX(-35%);
+        opacity: 0;
+    }
+    70% {
+        transform: translateX(4%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+body.page-category-tvs main > h1 {
+    animation: deslocar-titulo-principal 1.2s ease-out both;
+}
+
+/* Respeita a preferência do usuário por movimento reduzido. */
+@media (prefers-reduced-motion: reduce) {
+    a,
+    img,
+    body.page-category-tvs main > h1,
+    body.page-category-tvs main > h2:first-of-type {
+        animation: none;
+        transition: none;
+    }
+
+    img:hover {
+        transform: none;
     }
 }

@@ -73,6 +73,137 @@
                 </tr>
             </tbody>
         </table>
+
+        <section class="shop-tools" aria-labelledby="shop-tools-title">
+            <div class="section-heading">
+                <span class="eyebrow">Sua experiência, do seu jeito</span>
+                <h2 id="shop-tools-title">Encontre e personalize</h2>
+                <p>Busque produtos, acesse sua conta e conte pra gente o que podemos melhorar.</p>
+            </div>
+
+            <div class="tool-card search-card">
+                <h3>🔎 Procurar produto</h3>
+                <label for="product-search">Digite marca, preço ou parcelamento</label>
+                <div class="search-row">
+                    <input id="product-search" type="search" placeholder="Ex.: Samsung, LG, R$ 2.000..." autocomplete="off">
+                    <button type="button" id="clear-search" class="button button-secondary">Limpar</button>
+                </div>
+                <p id="search-status" class="form-status" aria-live="polite">Mostrando todos os produtos.</p>
+            </div>
+
+            <div class="account-grid">
+                <section class="tool-card account-card" aria-labelledby="account-title">
+                    <h3 id="account-title">👋 Acesse sua conta</h3>
+                    <div class="form-tabs" role="tablist" aria-label="Cadastro ou login">
+                        <button type="button" class="form-tab active" id="tab-register" role="tab" aria-selected="true" aria-controls="register-panel">Criar cadastro</button>
+                        <button type="button" class="form-tab" id="tab-login" role="tab" aria-selected="false" aria-controls="login-panel">Fazer login</button>
+                    </div>
+                    <form id="register-panel" class="account-form" role="tabpanel">
+                        <label for="register-name">Nome completo</label>
+                        <input id="register-name" name="name" type="text" placeholder="Como podemos te chamar?" autocomplete="name" required>
+                        <label for="register-email">E-mail</label>
+                        <input id="register-email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+                        <label for="register-password">Crie uma senha</label>
+                        <input id="register-password" name="password" type="password" minlength="8" placeholder="Mínimo de 8 caracteres" autocomplete="new-password" required>
+                        <button type="submit" class="button">Criar minha conta</button>
+                        <p class="form-status" id="register-status" aria-live="polite"></p>
+                    </form>
+                    <form id="login-panel" class="account-form" role="tabpanel" hidden>
+                        <label for="login-email">E-mail</label>
+                        <input id="login-email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+                        <label for="login-password">Senha</label>
+                        <input id="login-password" name="password" type="password" placeholder="Sua senha" autocomplete="current-password" required>
+                        <button type="submit" class="button">Entrar</button>
+                        <p class="form-status" id="login-status" aria-live="polite"></p>
+                    </form>
+                    <p class="privacy-note">Demonstração visual: os dados não são enviados nem armazenados.</p>
+                </section>
+
+                <section class="tool-card feedback-card" aria-labelledby="feedback-title">
+                    <h3 id="feedback-title">💬 Ajude a gente a melhorar</h3>
+                    <p>Sua opinião ajuda a deixar a loja cada vez melhor.</p>
+                    <form id="feedback-form" class="account-form">
+                        <label for="feedback-type">Sobre o que é seu feedback?</label>
+                        <select id="feedback-type" name="type" required>
+                            <option value="">Selecione uma opção</option>
+                            <option>Experiência de navegação</option>
+                            <option>Busca e filtros de produtos</option>
+                            <option>Preços e parcelamento</option>
+                            <option>Cadastro e login</option>
+                            <option>Outra sugestão</option>
+                        </select>
+                        <label for="feedback-message">Sua sugestão</label>
+                        <textarea id="feedback-message" name="message" rows="4" placeholder="O que podemos fazer melhor?" required></textarea>
+                        <label class="rating-label" for="feedback-rating">Como foi sua experiência? <span id="rating-value">5/5</span></label>
+                        <input id="feedback-rating" type="range" min="1" max="5" value="5">
+                        <button type="submit" class="button">Enviar feedback</button>
+                        <p class="form-status" id="feedback-status" aria-live="polite"></p>
+                    </form>
+                </section>
+            </div>
+        </section>
+
+        <script>
+        (() => {
+            const search = document.getElementById('product-search');
+            const rows = [...document.querySelectorAll('#primary-list tr')];
+            const cards = [...document.querySelectorAll('.products-grid .product-card')];
+            const status = document.getElementById('search-status');
+            function filterProducts() {
+                const query = search.value.trim().toLocaleLowerCase('pt-BR');
+                let visible = 0;
+                rows.forEach(row => {
+                    const match = row.innerText.toLocaleLowerCase('pt-BR').includes(query);
+                    row.hidden = !match;
+                    if (match) visible++;
+                });
+                cards.forEach(card => card.hidden = !card.innerText.toLocaleLowerCase('pt-BR').includes(query));
+                status.textContent = query ? `${visible} produto(s) encontrado(s).` : 'Mostrando todos os produtos.';
+            }
+            search.addEventListener('input', filterProducts);
+            document.getElementById('clear-search').addEventListener('click', () => {
+                search.value = '';
+                filterProducts();
+                search.focus();
+            });
+
+            const registerTab = document.getElementById('tab-register');
+            const loginTab = document.getElementById('tab-login');
+            const registerPanel = document.getElementById('register-panel');
+            const loginPanel = document.getElementById('login-panel');
+            function setAccountTab(isRegister) {
+                registerPanel.hidden = !isRegister;
+                loginPanel.hidden = isRegister;
+                registerTab.classList.toggle('active', isRegister);
+                loginTab.classList.toggle('active', !isRegister);
+                registerTab.setAttribute('aria-selected', String(isRegister));
+                loginTab.setAttribute('aria-selected', String(!isRegister));
+            }
+            registerTab.addEventListener('click', () => setAccountTab(true));
+            loginTab.addEventListener('click', () => setAccountTab(false));
+
+            document.getElementById('register-panel').addEventListener('submit', event => {
+                event.preventDefault();
+                document.getElementById('register-status').textContent = 'Cadastro de demonstração validado! Para criar contas reais, conecte um backend seguro.';
+                event.currentTarget.reset();
+            });
+            document.getElementById('login-panel').addEventListener('submit', event => {
+                event.preventDefault();
+                document.getElementById('login-status').textContent = 'Formulário validado em modo demonstração. A autenticação real precisa de um servidor seguro.';
+                event.currentTarget.reset();
+            });
+            const rating = document.getElementById('feedback-rating');
+            rating.addEventListener('input', () => document.getElementById('rating-value').textContent = `${rating.value}/5`);
+            document.getElementById('feedback-form').addEventListener('submit', event => {
+                event.preventDefault();
+                document.getElementById('feedback-status').textContent = 'Obrigado! Seu feedback foi registrado nesta demonstração.';
+                event.currentTarget.reset();
+                rating.value = 5;
+                document.getElementById('rating-value').textContent = '5/5';
+            });
+        })();
+        </script>
+
     </main>
 
     <footer>
