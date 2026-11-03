@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página</title>
+
+    <!-- Um link de página JavaScript -->
+    <!-- Tag script -->
+    <!-- Atributo SRC apontando para diretório do arquivo JS -->
+    <script src="./form.js" defer></script>
+
+    <!--
+    Atributos da tag script
+    defer: garantir que meu script seja iniciado após ser totalmente baixado
+    async: avisa que foi baixado e a diretiva já vai ser executada
+    -->
+  </head>
+
+  <body>
+    <!-- Criar um formulário para receber 3 valores
+    Valor 1: nome
+    Valor 2: nota 1
+    Valor 3: nota 2
+    Quando clicar no botão calcular:
+    1 realizar o cálculo da média
+    2 mostrar o resultado na tela
+    Nome - média
+    -->
+    <h1>Calculadora de média acadêmica</h1>
+
+    <!-- elemento de formulário com id formularioAcademico -->
+    <form action="" id="formularioAcademico">
+      <h2>Formulário</h2>
+
+      <!-- Campo para capturar o nome -->
+      <div>
+        <!-- label: legenda de um campo -->
+        <label for="nome">Digite seu nome</label>
+
+        <!-- Campo de entrada de dados do tipo texto -->
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          placeholder="Digite seu nome"
+          required
+        />
+        <!-- label atributo for e input atributo name tem que ter o mesmo valor -->
+      </div>
+
+      <!-- Campo para capturar primeira nota -->
+      <div>
+        <label for="notaUm">Digite a primeira nota</label>
+        <input
+          type="number"
+          id="notaUm"
+          name="notaUm"
+          min="0"
+          max="10"
+          step="1"
+          required
+          placeholder="7.5"
+        />
+      </div>
+
+      <!-- Campo para capturar segunda nota -->
+      <div>
+        <label for="notaDois">Digite a segunda nota</label>
+        <input
+          type="number"
+          id="notaDois"
+          name="notaDois"
+          min="0"
+          max="10"
+          step="1"
+          required
+          placeholder="7.5"
+        />
+      </div>
+
+      <!-- botões de ações -->
+      <div>
+        <button type="submit" id="btnCalcular">Calcular média</button>
+        <button type="reset" id="btnLimparCampos">Limpar campos</button>
+      </div>
+    </form>
+  </body>
+</html>

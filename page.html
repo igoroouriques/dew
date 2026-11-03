@@ -1,0 +1,42 @@
+<form name="selectForm">
+  <h2>Seleção de elementos HTML</h2>
+
+  <p class="texto">Este é um parágrafo com a classe texto.</p>
+
+  <button id="btn" class="botao">Botão 1</button>
+  <button class="botao">Botão 2</button>
+</form>
+
+<script>
+  //console.log("oi");
+
+  //1 getElementById: selecionamos um elemento pelo seu ID
+  //Só seleciona pelo atributo ID do HTML
+  let btn = document.getElementById("btn");
+  //console.log(btn);
+
+  //2 getElementsByClassName: selecionamentos vários elementos que compartilham a mesma classe
+  //Só seleciona pelo atributo class do HTML
+  const btnComClasse = document.getElementsByClassName("botao");
+  //console.log(btnComClasse);
+
+  //3 QuerySelector: seleciona um elemento de forma mais flexivel
+  const paragrafo = document.querySelector(".texto"); //. entende que é seleção por classe
+  console.log(paragrafo);
+
+  const botaoDeNovo = document.querySelector("#btn"); //# entende que é seleção por ID
+  console.log(botaoDeNovo);
+
+  //  //Listagem de coleções de elementos html
+  //  //botão 1 ->0
+  //  // botão 2 ->1
+  //   console.log(btnComClasse[0]);
+  //    console.log(btnComClasse[1]);
+
+  //btn seria o elemento rastreado
+  //click seria o nome do evento do gatilho
+  //function() resposta a ação do evento no elemento
+  btn.addEventListener("click", function () {
+    console.log("clicou");
+  });
+</script>
