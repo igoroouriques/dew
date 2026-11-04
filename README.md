@@ -131,6 +131,11 @@ dew/
 **Igor de Oliveira Ouriques**
 Estudante de Engenharia de Software · Univille, Joinville (SC)
 
+## 👤 Professora
+
+**Sabrina Boing Moreira**
+Professora das matérias de Dew e Apc_i - Univille, Joinville (SC)
+
 [![GitHub](https://img.shields.io/badge/GitHub-igoroouriques-181717?style=flat-square&logo=github)](https://github.com/igoroouriques)
 [![Instagram](https://img.shields.io/badge/Instagram-igoroouriques-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/igoroouriques)
 
